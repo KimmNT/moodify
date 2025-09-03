@@ -39,7 +39,26 @@ export const VideosResponse = type({
 
 export type VideosResponse = typeof VideosResponse.infer;
 
-export const FavoriteButtonProps = type({
-  videoId: "string",
+export const VideoContentDetails = type({
+  duration: "string",
+  dimension: "string",
+  definition: "string",
+  caption: "string",
+  licensedContent: "boolean",
 });
-export type FavoriteButtonProps = typeof FavoriteButtonProps.infer;
+
+export type VideoContentDetails = typeof VideoContentDetails.infer;
+
+export const VideoDetailItem = type({
+  id: "string",
+  contentDetails: VideoContentDetails,
+  snippet: VideoSnippet,
+});
+
+export type VideoDetailItem = typeof VideoDetailItem.infer;
+
+export const VideosDetailResponse = type({
+  items: [VideoDetailItem],
+});
+
+export type VideosDetailResponse = typeof VideosDetailResponse.infer;

@@ -1,0 +1,22 @@
+[
+  { "id": "happy", "label": "Happy" },
+  { "id": "sad", "label": "Sad" },
+  { "id": "chill", "label": "Chill" },
+  { "id": "energetic", "label": "Energetic" },
+  { "id": "romantic", "label": "Romantic" },
+  { "id": "angry", "label": "Angry" },
+  { "id": "melancholic", "label": "Melancholic" },
+  { "id": "dreamy", "label": "Dreamy" },
+  { "id": "uplifting", "label": "Uplifting" },
+  { "id": "dark", "label": "Dark" },
+  { "id": "relaxing", "label": "Relaxing" },
+  { "id": "groovy", "label": "Groovy" },
+  { "id": "calm", "label": "Calm" },
+  { "id": "playful", "label": "Playful" },
+  { "id": "emotional", "label": "Emotional" },
+  { "id": "inspiring", "label": "Inspiring" },
+  { "id": "lonely", "label": "Lonely" },
+  { "id": "hopeful", "label": "Hopeful" },
+  { "id": "mysterious", "label": "Mysterious" },
+  { "id": "nostalgic", "label": "Nostalgic" }
+]
