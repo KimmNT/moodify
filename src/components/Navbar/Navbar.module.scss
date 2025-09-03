@@ -1,0 +1,59 @@
+@use "../../style/utils.scss";
+:root {
+  --navbar-height: 100px;
+}
+
+.PageContainer {
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: var(--navbar-height);
+  .NavContainer {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    height: 100%;
+
+    @include utils.viewport(2) {
+      width: 95%;
+      padding: 0.5rem 0;
+    }
+
+    @include utils.viewport(3) {
+      width: 98%;
+      padding: 0.5rem 0;
+    }
+    .NavLinks {
+      display: flex;
+      gap: 2rem;
+      .ActiveLink {
+        border-bottom: 0.125rem solid white;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: gray;
+        }
+
+        @include utils.viewport(2) {
+          gap: 1.5rem;
+        }
+
+        @include utils.viewport(3) {
+          font-size: 0.9rem;
+          gap: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "nav": [
+    {
+      "name": "Mood",
+      "path": "/mood",
+      "icon": "home"
+    },
+    {
+      "name": "Explore",
+      "path": "/explore",
+      "icon": "explore"
+    },
+    {
+      "name": "Contribute",
+      "path": "/contribute",
+      "icon": "contribute"
+    },
+    {
+      "name": "Favorites",
+      "path": "/favorite",
+      "icon": "favorite"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+@use "../../style/utils.scss";
+
+.LogoContainer {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+
+  @include utils.viewport(2) {
+    font-size: 2.5rem;
+  }
+
+  @include utils.viewport(3) {
+    font-size: 2rem;
+  }
+}

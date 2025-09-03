@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "GoogleCode";
+  src: url("./assets/fonts/GoogleSansCode-VariableFont_wght.ttf");
+  src:
+    url("./assets/fonts/GoogleSansCode-VariableFont_wght.ttf?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/GoogleSansCode-VariableFont_wght.ttf") format("woff"),
+    url("./assets/fonts/GoogleSansCode-VariableFont_wght.ttf")
+      format("truetype"),
+    url("FileName.svg#GoogleCode") format("svg");
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: GoogleCode;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+input {
+  outline: none;
+  background-color: transparent;
+  font-family: GoogleCode;
+}
