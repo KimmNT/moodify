@@ -107,6 +107,7 @@ export default function Contribute() {
                     toggleFavorite({
                       id: video.id.videoId,
                       title: video.snippet.title,
+                      thumbnail: video.snippet.thumbnails.high.url,
                     })
                   }
                   type="button"
