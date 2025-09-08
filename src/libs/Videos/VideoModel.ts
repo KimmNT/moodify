@@ -23,7 +23,7 @@ export const VideoSnippet = type({
   publishTime: "string",
   title: "string",
   description: "string",
-  thumbnail: VideoThumbnails,
+  thumbnails: VideoThumbnails,
 });
 
 export const VideoItem = type({

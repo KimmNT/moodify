@@ -64,9 +64,10 @@
         display: flex;
         align-items: center;
         gap: 1rem;
-        iframe {
+        img {
           width: 7rem;
           height: 7rem;
+          object-fit: cover;
         }
         .Title {
           font-size: 1.1rem;
