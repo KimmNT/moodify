@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 type Favorite = {
   id: string;
   title: string;
+  thumbnail: string;
 };
 
 export default function useFavorites() {
