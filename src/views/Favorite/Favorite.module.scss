@@ -1,3 +1,5 @@
+@use "../../style/utils.scss";
+
 .PageContainer {
   width: 90%;
   margin: 0 auto;
@@ -11,10 +13,16 @@
     .Header {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      @include utils.viewport(3) {
+        font-size: 1.7rem;
+      }
     }
     .SubHeader {
       font-size: 1.2rem;
       color: #666;
+      @include utils.viewport(3) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -34,14 +42,24 @@
       padding: 0.5rem;
       border-radius: 0.25rem;
       cursor: pointer;
+      @include utils.viewport(3) {
+        gap: 0.5rem;
+      }
       .Icon {
         width: 1.5rem;
         height: 1.5rem;
         color: black;
+        @include utils.viewport(3) {
+          width: 1.2rem;
+          height: 1.2rem;
+        }
       }
       .Label {
         font-size: 1rem;
         color: black;
+        @include utils.viewport(3) {
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -50,6 +68,14 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    .NoFavorites {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+
     .VideoCard {
       border: 1px solid #ddd;
       border-radius: 0.25rem;
@@ -59,20 +85,42 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      &.Playing {
+        background-color: black;
+        .VideoWrapper {
+          .Title {
+            color: white;
+          }
+        }
+        .Actions {
+          .ActionButton {
+            &.FavoriteButton {
+              background: black;
+            }
+            .Icon {
+              color: white;
+            }
+          }
+        }
+      }
 
       .VideoWrapper {
         display: flex;
         align-items: center;
         gap: 1rem;
+        height: 100%;
         img {
           width: 7rem;
-          height: 7rem;
+          height: 100%;
           object-fit: cover;
         }
         .Title {
           font-size: 1.1rem;
           font-weight: 600;
           color: #333;
+          @include utils.viewport(3) {
+            font-size: 0.85rem;
+          }
         }
       }
 
@@ -111,86 +159,196 @@
       }
     }
   }
-  .NowPlayingBar {
-    min-width: 20%;
-    max-width: 90%;
-    background: white;
-    border-radius: 0.25rem;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 1rem;
-    border: 0.125rem solid black;
-    margin-bottom: 1rem;
 
-    .NowPlayingInfo {
+  .ImportListingContainer {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    z-index: 1002;
+    width: 50%;
+    border-radius: 0.25rem;
+
+    @include utils.viewport(2) {
+      width: 95%;
+    }
+
+    .ImportListingBox {
       display: flex;
-      gap: 0.5rem;
       align-items: center;
       justify-content: center;
-      .Title {
-        font-size: 0.9rem;
-        color: black;
-        text-align: center;
-        margin-bottom: 0.25rem;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem;
+
+      .CloseButton {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.25rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #ff0066;
+        }
+        .Icon {
+          color: white;
+          width: 100%;
+        }
       }
-      .ViewButton {
-        background-color: black;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 0.125rem;
+
+      .HeaderContainer {
+        color: white;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-        .ViewIcon {
-          width: 1.25rem;
-          height: 1.25rem;
-          color: white;
+        flex-direction: column;
+        gap: 1rem;
+
+        .Header {
+          font-size: 1.3rem;
+        }
+
+        .SubHeader {
+          font-size: 1rem;
+          color: #ccc;
         }
       }
-    }
-    .Controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      .Button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        border-radius: 0.25rem;
-        padding: 0.125rem 0.5rem;
-        transition: background-color 0.3s;
-        &.ActiveButton {
-          background-color: black;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+
+      .InputContainer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+
+        input {
+          width: 80%;
+          background-color: transparent;
+          border: 0.125rem solid white;
+          outline: none;
+          font-size: 1rem;
+          color: white;
+          padding: 0.25rem;
+          border-radius: 0.25rem;
         }
-        .Icon {
-          width: 1.25rem;
-          height: 1.25rem;
+
+        .SubmitButton {
+          padding: 0.5rem 1rem;
+          background-color: white;
           color: black;
-          &.ActiveIcon {
-            color: white;
+          border: none;
+          border-radius: 0.25rem;
+          cursor: pointer;
+          font-size: 1rem;
+          transition:
+            background-color 0.3s,
+            color 0.3s;
+
+          &:hover {
+            background-color: #ddd;
           }
         }
       }
-    }
-    .ProgressBarContainer {
-      width: 100%;
-      background: #373737;
-      height: 0.125rem;
-      .ProgressBar {
+
+      .DecompressedContainer {
+        width: 100%;
         height: 100%;
-        background: #ff0066;
-        transition: width 0.1s linear;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .Navigation {
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-weight: bold;
+          color: black;
+          background-color: white;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+        }
+
+        .InfoContainer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+          .Total {
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+          }
+
+          .AddAllButton {
+            color: black;
+            background-color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+          }
+        }
+
+        .DecompressedList {
+          width: 100%;
+          max-height: 35rem;
+          overflow-y: auto;
+
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 0.5rem;
+          .Item {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            color: black;
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+
+            img {
+              width: 100%;
+              height: 10rem;
+              object-fit: cover;
+            }
+
+            .Heading {
+              font-size: 0.9rem;
+            }
+
+            .Controls {
+              display: flex;
+              width: 100%;
+              align-items: center;
+              justify-content: space-around;
+
+              .Button {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                justify-content: center;
+                background-color: #ccc;
+                padding: 0.25rem 0.5rem;
+                border-radius: 0.25rem;
+                cursor: pointer;
+                .Icon {
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -62,3 +62,11 @@ export const VideosDetailResponse = type({
 });
 
 export type VideosDetailResponse = typeof VideosDetailResponse.infer;
+
+export const Favorite = type({
+  id: "string",
+  title: "string",
+  thumbnail: "string",
+});
+
+export type Favorite = typeof Favorite.infer;

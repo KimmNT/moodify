@@ -24,13 +24,15 @@ export default function YouTubePlayer() {
     height: "225",
     playerVars: {
       autoplay: isPlaying ? 1 : 0,
+      // controls: 1,
+      // mute: 1,
     },
   };
 
   const handleStateChange = (event: YouTubeEvent<YouTubePlayer>) => {
-    // 0 = ENDED, 1 = PLAYING, 2 = PAUSED
+    // 0 = ENDED
     if (event.data === 0) {
-      playNext(); // Auto play next song
+      playNext();
     }
   };
 
@@ -49,7 +51,7 @@ export default function YouTubePlayer() {
       {/* Video */}
       <div className={style.PlaySpace}>
         <YouTube
-          videoId={playingId}
+          videoId={playingId ?? ""}
           opts={opts}
           onStateChange={handleStateChange}
         />
