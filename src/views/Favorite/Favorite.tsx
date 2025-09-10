@@ -3,13 +3,47 @@ import Navbar from "../../components/Navbar/Navbar";
 import TabTitle from "../../components/TabTitle/TabTitle";
 import useFavorites from "../../libs/Videos/hooks/useFavorite";
 import style from "./Favorite.module.scss";
-import { HeartIcon, Pause, Play } from "lucide-react";
-import { useEffect } from "react";
+import {
+  ArrowLeft,
+  Copy,
+  HeartIcon,
+  Import,
+  Pause,
+  Play,
+  Plus,
+  X,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 import { usePlayerStore } from "../../libs/youtubePlayer/store";
+import pako from "pako";
+import type { Favorite as FavoriteList } from "../../libs/Videos/VideoModel";
 
 export default function Favorite() {
   const { favorites, toggleFavorite, isFavorite } = useFavorites();
   const { setQueue, play, playingId } = usePlayerStore();
+  const [compressed, setCompressed] = useState("");
+  const [decompressed, setDecompressed] = useState<FavoriteList[] | null>(null);
+  const [input, setInput] = useState("");
+  const [isImportOpen, setIsImportOpen] = useState(false);
+  const stored = localStorage.getItem("favorites") ?? "";
+
+  const compress = (str: string) => {
+    const binary = pako.gzip(str);
+    // setCompressed(btoa(String.fromCharCode(...binary)));
+    return btoa(String.fromCharCode(...binary)); // base64
+  };
+
+  const decompress = (base64: string) => {
+    const binary = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+    const decompressResult = pako.ungzip(binary, { to: "string" });
+    setDecompressed(JSON.parse(decompressResult));
+  };
+
+  const handleCompress = () => {
+    const compressResult = compress(stored);
+    setCompressed(compressResult);
+    navigator.clipboard.writeText(compressResult);
+  };
 
   useEffect(() => {
     setQueue(favorites);
@@ -43,10 +77,30 @@ export default function Favorite() {
           <button
             type="button"
             className={style.Button}
-            onClick={() => play(favorites[0]?.id)}
+            onClick={() => {
+              play(favorites[0]?.id);
+            }}
           >
             <Play className={style.Icon} />
             <p className={style.Label}>Play all</p>
+          </button>
+          <button
+            type="button"
+            className={style.Button}
+            onClick={() => handleCompress()}
+          >
+            <Copy className={style.Icon} />
+            <p className={style.Label}>
+              {compressed !== "" ? "Copied" : "Copy list ID"}
+            </p>
+          </button>
+          <button
+            type="button"
+            className={style.Button}
+            onClick={() => setIsImportOpen(true)}
+          >
+            <Import className={style.Icon} />
+            <p className={style.Label}>Import</p>
           </button>
           {/* <button type="button" className={style.Button}>
             <Edit2 className={style.Icon} />
@@ -65,7 +119,10 @@ export default function Favorite() {
                 return (
                   <div
                     key={item.id}
-                    className={style.VideoCard}
+                    className={clsx(
+                      style.VideoCard,
+                      playingId === item.id && style.Playing
+                    )}
                     id={`video-${item.id}`}
                     onClick={() => play(item.id)}
                   >
@@ -116,6 +173,99 @@ export default function Favorite() {
             </>
           )}
         </div>
+
+        {isImportOpen && (
+          <div className={style.ImportListingContainer}>
+            <div className={style.ImportListingBox}>
+              {decompressed === null ? (
+                <>
+                  <button
+                    type="button"
+                    className={style.CloseButton}
+                    onClick={() => setIsImportOpen(false)}
+                  >
+                    <X className={style.Icon} />
+                  </button>
+                  <div className={style.HeaderContainer}>
+                    <h2 className={style.Header}>Import Favorites</h2>
+                    <p className={style.SubHeader}>
+                      Have a list ID? Import it here to get your favorite songs
+                      back.
+                    </p>
+                  </div>
+                  <div className={style.InputContainer}>
+                    <input
+                      type="text"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                    />
+                    <button
+                      onClick={() => decompress(input)}
+                      className={style.SubmitButton}
+                    >
+                      Import now!
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className={style.DecompressedContainer}>
+                  <button
+                    onClick={() => setDecompressed(null)}
+                    className={style.Navigation}
+                  >
+                    <ArrowLeft /> Go back to import
+                  </button>
+                  <div className={style.InfoContainer}>
+                    <p className={style.Total}>
+                      Total: {decompress.length} songs
+                    </p>
+                    <button
+                      type="button"
+                      className={style.AddAllButton}
+                      onClick={() => {
+                        decompressed.forEach((item) => {
+                          if (!isFavorite(item.id)) {
+                            toggleFavorite(item);
+                          }
+                        });
+                        setIsImportOpen(false);
+                      }}
+                    >
+                      <Plus /> Add all songs
+                    </button>
+                  </div>
+                  <div className={style.DecompressedList}>
+                    {decompressed.map((item) => (
+                      <div className={style.Item} key={item.id}>
+                        <img src={item.thumbnail} alt="" />
+                        <div className={style.Heading}>
+                          {item.title.substring(0, 50)}
+                        </div>
+                        <div className={style.Controls}>
+                          <button
+                            type="button"
+                            className={style.Button}
+                            onClick={() => play(item.id)}
+                          >
+                            <Play className={style.Icon} /> Play
+                          </button>
+                          <button
+                            type="button"
+                            className={style.Button}
+                            onClick={() => toggleFavorite(item)}
+                          >
+                            <HeartIcon className={style.Icon} /> Add to
+                            favorites
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </main>
     </>
   );

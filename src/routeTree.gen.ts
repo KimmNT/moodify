@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TestIndexRouteImport } from './routes/test/index'
 import { Route as MoodIndexRouteImport } from './routes/mood/index'
 import { Route as FavoriteIndexRouteImport } from './routes/favorite/index'
 import { Route as ExploreIndexRouteImport } from './routes/explore/index'
@@ -21,6 +22,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+const TestIndexRoute = TestIndexRouteImport.update({
+  id: '/test/',
+  path: '/test/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/test/index.lazy').then((d) => d.Route))
 const MoodIndexRoute = MoodIndexRouteImport.update({
   id: '/mood/',
   path: '/mood/',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/explore': typeof ExploreIndexRoute
   '/favorite': typeof FavoriteIndexRoute
   '/mood': typeof MoodIndexRoute
+  '/test': typeof TestIndexRoute
   '/contribute/$videoId': typeof ContributeVideoIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/explore': typeof ExploreIndexRoute
   '/favorite': typeof FavoriteIndexRoute
   '/mood': typeof MoodIndexRoute
+  '/test': typeof TestIndexRoute
   '/contribute/$videoId': typeof ContributeVideoIdIndexRoute
 }
 export interface FileRoutesById {
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/explore/': typeof ExploreIndexRoute
   '/favorite/': typeof FavoriteIndexRoute
   '/mood/': typeof MoodIndexRoute
+  '/test/': typeof TestIndexRoute
   '/contribute/$videoId/': typeof ContributeVideoIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
     | '/explore'
     | '/favorite'
     | '/mood'
+    | '/test'
     | '/contribute/$videoId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
     | '/explore'
     | '/favorite'
     | '/mood'
+    | '/test'
     | '/contribute/$videoId'
   id:
     | '__root__'
@@ -102,6 +113,7 @@ export interface FileRouteTypes {
     | '/explore/'
     | '/favorite/'
     | '/mood/'
+    | '/test/'
     | '/contribute/$videoId/'
   fileRoutesById: FileRoutesById
 }
@@ -111,6 +123,7 @@ export interface RootRouteChildren {
   ExploreIndexRoute: typeof ExploreIndexRoute
   FavoriteIndexRoute: typeof FavoriteIndexRoute
   MoodIndexRoute: typeof MoodIndexRoute
+  TestIndexRoute: typeof TestIndexRoute
   ContributeVideoIdIndexRoute: typeof ContributeVideoIdIndexRoute
 }
 
@@ -121,6 +134,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test/': {
+      id: '/test/'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mood/': {
@@ -167,6 +187,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExploreIndexRoute: ExploreIndexRoute,
   FavoriteIndexRoute: FavoriteIndexRoute,
   MoodIndexRoute: MoodIndexRoute,
+  TestIndexRoute: TestIndexRoute,
   ContributeVideoIdIndexRoute: ContributeVideoIdIndexRoute,
 }
 export const routeTree = rootRouteImport

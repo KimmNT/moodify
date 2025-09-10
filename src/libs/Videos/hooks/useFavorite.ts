@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-
-type Favorite = {
-  id: string;
-  title: string;
-  thumbnail: string;
-};
+import type { Favorite } from "../VideoModel";
 
 export default function useFavorites() {
   const [favorites, setFavorites] = useState<Favorite[]>(() => {
