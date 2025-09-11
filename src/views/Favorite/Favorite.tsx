@@ -124,7 +124,6 @@ export default function Favorite() {
                       playingId === item.id && style.Playing
                     )}
                     id={`video-${item.id}`}
-                    onClick={() => play(item.id)}
                   >
                     <div className={style.VideoWrapper}>
                       <img
@@ -223,6 +222,20 @@ export default function Favorite() {
                       type="button"
                       className={style.AddAllButton}
                       onClick={() => {
+                        localStorage.setItem(
+                          "favorites",
+                          JSON.stringify(decompressed)
+                        );
+                        window.location.reload();
+                        setIsImportOpen(false);
+                      }}
+                    >
+                      <Plus /> Replace
+                    </button>
+                    <button
+                      type="button"
+                      className={style.AddAllButton}
+                      onClick={() => {
                         decompressed.forEach((item) => {
                           if (!isFavorite(item.id)) {
                             toggleFavorite(item);
@@ -231,7 +244,7 @@ export default function Favorite() {
                         setIsImportOpen(false);
                       }}
                     >
-                      <Plus /> Add all songs
+                      <Plus /> Combine
                     </button>
                   </div>
                   <div className={style.DecompressedList}>
