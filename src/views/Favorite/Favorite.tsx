@@ -11,6 +11,7 @@ import {
   Pause,
   Play,
   Plus,
+  Shuffle,
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -61,6 +62,30 @@ export default function Favorite() {
     }
   }, [playingId]);
 
+  function shuffleDifferent<T>(array: T[]): T[] {
+    if (array.length < 2) return [...array];
+
+    let result: T[];
+    do {
+      result = [...array];
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+    } while (result.every((val, idx) => val === array[idx]));
+
+    return result;
+  }
+
+  const handleShuffle = () => {
+    const shuffled = shuffleDifferent(favorites);
+    console.log(shuffled);
+    setQueue(shuffled);
+    if (shuffled.length > 0) {
+      play(shuffled[0].id);
+    }
+  };
+
   return (
     <>
       <TabTitle title="Favorite" />
@@ -74,6 +99,15 @@ export default function Favorite() {
         </div>
 
         <div className={style.ListControl}>
+          <button
+            type="button"
+            className={style.Button}
+            onClick={() => handleShuffle()}
+          >
+            <Shuffle className={style.Icon} />
+            <p className={style.Label}>Shuffle</p>
+          </button>
+
           <button
             type="button"
             className={style.Button}

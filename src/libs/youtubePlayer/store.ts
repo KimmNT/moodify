@@ -12,6 +12,7 @@ interface PlayerState {
   playNext: () => void;
   playPrevious: () => void;
   toggleShuffle: () => void;
+  stop: () => void;
 }
 
 export const usePlayerStore = create<PlayerState>((set, get) => ({
@@ -53,4 +54,6 @@ export const usePlayerStore = create<PlayerState>((set, get) => ({
   },
 
   toggleShuffle: () => set((s) => ({ shuffle: !s.shuffle })),
+
+  stop: () => set({ playingId: null, isPlaying: false }),
 }));
