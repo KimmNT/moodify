@@ -2,8 +2,13 @@ import { usePlayerStore } from "../../libs/youtubePlayer/store";
 import YouTube from "react-youtube";
 import type { YouTubeEvent, YouTubePlayer } from "react-youtube";
 import style from "./YoutubePlayer.module.scss";
-import { Shuffle, SkipBack, SkipForward } from "lucide-react";
-import clsx from "clsx";
+import {
+  // Shuffle,
+  SkipBack,
+  SkipForward,
+  X,
+} from "lucide-react";
+// import clsx from "clsx";
 
 export default function YouTubePlayer() {
   const {
@@ -12,9 +17,10 @@ export default function YouTubePlayer() {
     playNext,
     playPrevious,
     // togglePlay,
-    shuffle,
-    toggleShuffle,
+    // shuffle,
+    // toggleShuffle,
     queue,
+    stop,
   } = usePlayerStore();
 
   if (!playingId) return null;
@@ -63,16 +69,19 @@ export default function YouTubePlayer() {
           <button onClick={playPrevious} className={style.Button}>
             <SkipBack className={style.Icon} />
           </button>
-          <button
+          {/* <button
             onClick={toggleShuffle}
             className={clsx(style.Button, shuffle && style.ActiveButton)}
           >
             <Shuffle
               className={clsx(style.Icon, shuffle && style.ActiveIcon)}
             />
-          </button>
+          </button> */}
           <button onClick={playNext} className={style.Button}>
             <SkipForward className={style.Icon} />
+          </button>
+          <button onClick={stop} className={style.Button}>
+            <X className={style.Icon} />
           </button>
         </div>
       </div>
