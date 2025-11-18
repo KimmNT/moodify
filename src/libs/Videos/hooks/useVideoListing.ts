@@ -6,7 +6,7 @@ export function useVideoListing(songName: string) {
     queryKey: ["videos", songName],
     queryFn: async () => {
       const res = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${songName}&type=video&maxResults=7&key=${
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${songName}&type=video&maxResults=10&key=${
           import.meta.env.VITE_YOUTUBE_API_KEY
         }`
       );

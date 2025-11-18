@@ -1,0 +1,111 @@
+@use "@/style/utils.scss";
+
+$piano-width: 90vw;
+$key-white-width: 3.2vw;
+$key-black-width: 2vw;
+$key-height: 25vh;
+
+.PageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: var(--navbar-height);
+  position: relative;
+  height: 95dvh;
+
+  .PageContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin: 2rem 0;
+
+    .ProjectsHeader {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .Heading {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+        @include utils.viewport(3) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .NewProjectButton {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #000;
+        color: #fff;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        .Icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        .Text {
+          font-size: 0.75rem;
+          @include utils.viewport(3) {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+
+    .ProjectsList {
+      width: 100%;
+      margin-top: 3rem;
+
+      .ProjectList {
+        display: flex;
+        width: 100%;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        .ProjectItem {
+          width: fit-content;
+          border: 0.125rem solid #000;
+          border-radius: 0.25rem;
+          display: flex;
+          gap: 0.5rem;
+
+          .ProjectIconContainer {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            .ProjectIcon {
+              color: #fff;
+            }
+          }
+
+          .ProjectInfo {
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.5rem;
+
+            .Item {
+              font-size: 1rem;
+              color: #000;
+            }
+
+            .Contoller {
+              display: flex;
+              gap: 0.5rem;
+              align-items: flex-end;
+              width: 100%;
+              margin-top: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "../../style/utils.scss";
+
+$piano-width: 90vw;
+$key-white-width: 3.2vw;
+$key-black-width: 2vw;
+$key-height: 25vh;
+
+.PageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: var(--navbar-height);
+  position: relative;
+  height: 95dvh;
+
+  .HeaderContainer {
+    text-align: center;
+    margin: 2rem 0;
+    .Header {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      @include utils.viewport(3) {
+        font-size: 1.7rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,649 @@
+[
+  {
+    "chordName": "Empty",
+    "chordList": []
+  },
+  {
+    "chordName": "major",
+    "chordList": [
+      {
+        "name": "C Major",
+        "symbol": "C",
+        "notes": ["C4", "E4", "G4"],
+        "bass": "C3"
+      },
+      {
+        "name": "D Major",
+        "symbol": "D",
+        "notes": ["D4", "F#4", "A4"],
+        "bass": "D3"
+      },
+      {
+        "name": "E Major",
+        "symbol": "E",
+        "notes": ["E4", "G#4", "B4"],
+        "bass": "E3"
+      },
+      {
+        "name": "F Major",
+        "symbol": "F",
+        "notes": ["F4", "A4", "C5"],
+        "bass": "F3"
+      },
+      {
+        "name": "G Major",
+        "symbol": "G",
+        "notes": ["G4", "B4", "D5"],
+        "bass": "G3"
+      },
+      {
+        "name": "A Major",
+        "symbol": "A",
+        "notes": ["A4", "C#5", "E5"],
+        "bass": "A3"
+      },
+      {
+        "name": "B Major",
+        "symbol": "B",
+        "notes": ["B4", "D#5", "F#5"],
+        "bass": "B3"
+      }
+    ]
+  },
+  {
+    "chordName": "minor",
+    "chordList": [
+      {
+        "name": "C Minor",
+        "symbol": "Cm",
+        "notes": ["C4", "D#4", "G4"],
+        "bass": "C3"
+      },
+      {
+        "name": "D Minor",
+        "symbol": "Dm",
+        "notes": ["D4", "F4", "A4"],
+        "bass": "D3"
+      },
+      {
+        "name": "E Minor",
+        "symbol": "Em",
+        "notes": ["E4", "G4", "B4"],
+        "bass": "E3"
+      },
+      {
+        "name": "F Minor",
+        "symbol": "Fm",
+        "notes": ["F4", "G#4", "C5"],
+        "bass": "F3"
+      },
+      {
+        "name": "G Minor",
+        "symbol": "Gm",
+        "notes": ["G4", "A#4", "D5"],
+        "bass": "G3"
+      },
+      {
+        "name": "A Minor",
+        "symbol": "Am",
+        "notes": ["A4", "C5", "E5"],
+        "bass": "A3"
+      },
+      {
+        "name": "B Minor",
+        "symbol": "Bm",
+        "notes": ["B4", "D5", "F#5"],
+        "bass": "B3"
+      },
+      {
+        "name": "F# Minor",
+        "symbol": "F#m",
+        "notes": ["F#4", "A4", "C#5"],
+        "bass": "F#3"
+      }
+    ]
+  },
+  {
+    "chordName": "major7",
+    "chordList": [
+      {
+        "name": "C Major 7",
+        "symbol": "Cmaj7",
+        "notes": ["C4", "E4", "G4", "B4"],
+        "bass": "C3"
+      },
+      {
+        "name": "D Major 7",
+        "symbol": "Dmaj7",
+        "notes": ["D4", "F#4", "A4", "C#5"],
+        "bass": "D3"
+      },
+      {
+        "name": "E Major 7",
+        "symbol": "Emaj7",
+        "notes": ["E4", "G#4", "B4", "D#5"],
+        "bass": "E3"
+      },
+      {
+        "name": "F Major 7",
+        "symbol": "Fmaj7",
+        "notes": ["F4", "A4", "C5", "E5"],
+        "bass": "F3"
+      },
+      {
+        "name": "G Major 7",
+        "symbol": "Gmaj7",
+        "notes": ["G4", "B4", "D5", "F#5"],
+        "bass": "G3"
+      },
+      {
+        "name": "A Major 7",
+        "symbol": "Amaj7",
+        "notes": ["A4", "C#5", "E5", "G#5"],
+        "bass": "A3"
+      },
+      {
+        "name": "B Major 7",
+        "symbol": "Bmaj7",
+        "notes": ["B4", "D#5", "F#5", "A#5"],
+        "bass": "B3"
+      }
+    ]
+  },
+  {
+    "chordName": "dominant7",
+    "chordList": [
+      {
+        "name": "C Dominant 7",
+        "symbol": "C7",
+        "notes": ["C4", "E4", "G4", "A#4"],
+        "bass": "C3"
+      },
+      {
+        "name": "C# Dominant 7",
+        "symbol": "C#7",
+        "notes": ["C#4", "F4", "G#4", "B4"],
+        "bass": "C#3"
+      },
+      {
+        "name": "D Dominant 7",
+        "symbol": "D7",
+        "notes": ["D4", "F#4", "A4", "C5"],
+        "bass": "D3"
+      },
+      {
+        "name": "D# Dominant 7",
+        "symbol": "D#7",
+        "notes": ["D#4", "G4", "A#4", "C#5"],
+        "bass": "D#3"
+      },
+      {
+        "name": "E Dominant 7",
+        "symbol": "E7",
+        "notes": ["E4", "G#4", "B4", "D5"],
+        "bass": "E3"
+      },
+      {
+        "name": "F Dominant 7",
+        "symbol": "F7",
+        "notes": ["F4", "A4", "C5", "D#5"],
+        "bass": "F3"
+      },
+      {
+        "name": "F# Dominant 7",
+        "symbol": "F#7",
+        "notes": ["F#4", "A#4", "C#5", "E5"],
+        "bass": "F#3"
+      },
+      {
+        "name": "G Dominant 7",
+        "symbol": "G7",
+        "notes": ["G4", "B4", "D5", "F5"],
+        "bass": "G3"
+      },
+      {
+        "name": "G# Dominant 7",
+        "symbol": "G#7",
+        "notes": ["G#4", "C5", "D#5", "F#5"],
+        "bass": "G#3"
+      },
+      {
+        "name": "A Dominant 7",
+        "symbol": "A7",
+        "notes": ["A4", "C#5", "E5", "G5"],
+        "bass": "A3"
+      },
+      {
+        "name": "A# Dominant 7",
+        "symbol": "A#7",
+        "notes": ["A#4", "D5", "F5", "G#5"],
+        "bass": "A#3"
+      },
+      {
+        "name": "B Dominant 7",
+        "symbol": "B7",
+        "notes": ["B4", "D#5", "F#5", "A5"],
+        "bass": "B3"
+      }
+    ]
+  },
+  {
+    "chordName": "minor7",
+    "chordList": [
+      {
+        "name": "C Minor 7",
+        "symbol": "Cm7",
+        "notes": ["C4", "D#4", "G4", "A#4"],
+        "bass": "C3"
+      },
+      {
+        "name": "D Minor 7",
+        "symbol": "Dm7",
+        "notes": ["D4", "F4", "A4", "C5"],
+        "bass": "D3"
+      },
+      {
+        "name": "E Minor 7",
+        "symbol": "Em7",
+        "notes": ["E4", "G4", "B4", "D5"],
+        "bass": "E3"
+      },
+      {
+        "name": "F Minor 7",
+        "symbol": "Fm7",
+        "notes": ["F4", "G#4", "C5", "D#5"],
+        "bass": "F3"
+      },
+      {
+        "name": "G Minor 7",
+        "symbol": "Gm7",
+        "notes": ["G4", "A#4", "D5", "F5"],
+        "bass": "G3"
+      },
+      {
+        "name": "A Minor 7",
+        "symbol": "Am7",
+        "notes": ["A4", "C5", "E5", "G5"],
+        "bass": "A3"
+      },
+      {
+        "name": "B Minor 7",
+        "symbol": "Bm7",
+        "notes": ["B4", "D5", "F#5", "A5"],
+        "bass": "B3"
+      }
+    ]
+  },
+  {
+    "chordName": "suspended",
+    "chordList": [
+      {
+        "name": "C Suspended 2",
+        "symbol": "Csus2",
+        "notes": ["C4", "D4", "G4"],
+        "bass": "C3"
+      },
+      {
+        "name": "C Suspended 4",
+        "symbol": "Csus4",
+        "notes": ["C4", "F4", "G4"],
+        "bass": "C3"
+      },
+      {
+        "name": "D Suspended 2",
+        "symbol": "Dsus2",
+        "notes": ["D4", "E4", "A4"],
+        "bass": "D3"
+      },
+      {
+        "name": "D Suspended 4",
+        "symbol": "Dsus4",
+        "notes": ["D4", "G4", "A4"],
+        "bass": "D3"
+      },
+      {
+        "name": "E Suspended 2",
+        "symbol": "Esus2",
+        "notes": ["E4", "F#4", "B4"],
+        "bass": "E3"
+      },
+      {
+        "name": "E Suspended 4",
+        "symbol": "Esus4",
+        "notes": ["E4", "A4", "B4"],
+        "bass": "E3"
+      },
+      {
+        "name": "F Suspended 2",
+        "symbol": "Fsus2",
+        "notes": ["F4", "G4", "C5"],
+        "bass": "F3"
+      },
+      {
+        "name": "F Suspended 4",
+        "symbol": "Fsus4",
+        "notes": ["F4", "A#4", "C5"],
+        "bass": "F3"
+      },
+      {
+        "name": "G Suspended 2",
+        "symbol": "Gsus2",
+        "notes": ["G4", "A4", "D5"],
+        "bass": "G3"
+      },
+      {
+        "name": "G Suspended 4",
+        "symbol": "Gsus4",
+        "notes": ["G4", "C5", "D5"],
+        "bass": "G3"
+      },
+      {
+        "name": "A Suspended 2",
+        "symbol": "Asus2",
+        "notes": ["A4", "B4", "E5"],
+        "bass": "A3"
+      },
+      {
+        "name": "A Suspended 4",
+        "symbol": "Asus4",
+        "notes": ["A4", "D5", "E5"],
+        "bass": "A3"
+      },
+      {
+        "name": "B Suspended 2",
+        "symbol": "Bsus2",
+        "notes": ["B4", "C#5", "F#5"],
+        "bass": "B3"
+      },
+      {
+        "name": "B Suspended 4",
+        "symbol": "Bsus4",
+        "notes": ["B4", "E5", "F#5"],
+        "bass": "B3"
+      }
+    ]
+  },
+  {
+    "chordName": "diminished",
+    "chordList": [
+      {
+        "name": "C Diminished",
+        "symbol": "Cdim",
+        "notes": ["C4", "D#4", "F#4"],
+        "bass": "C3"
+      },
+      {
+        "name": "D Diminished",
+        "symbol": "Ddim",
+        "notes": ["D4", "F4", "G#4"],
+        "bass": "D3"
+      },
+      {
+        "name": "E Diminished",
+        "symbol": "Edim",
+        "notes": ["E4", "G4", "A#4"],
+        "bass": "E3"
+      },
+      {
+        "name": "F Diminished",
+        "symbol": "Fdim",
+        "notes": ["F4", "G#4", "B4"],
+        "bass": "F3"
+      },
+      {
+        "name": "G Diminished",
+        "symbol": "Gdim",
+        "notes": ["G4", "A#4", "C#5"],
+        "bass": "G3"
+      },
+      {
+        "name": "A Diminished",
+        "symbol": "Adim",
+        "notes": ["A4", "C5", "D#5"],
+        "bass": "A3"
+      },
+      {
+        "name": "B Diminished",
+        "symbol": "Bdim",
+        "notes": ["B4", "D5", "F5"],
+        "bass": "B3"
+      }
+    ]
+  },
+  {
+    "chordName": "half-diminished",
+    "chordList": [
+      {
+        "name": "B Half-Diminished 7",
+        "symbol": "Bm7b5",
+        "notes": ["B4", "D5", "F5", "A5"],
+        "bass": "B3"
+      }
+    ]
+  },
+  {
+    "chordName": "augmented",
+    "chordList": [
+      {
+        "name": "C Augmented",
+        "symbol": "Caug",
+        "notes": ["C4", "E4", "G#4"],
+        "bass": "C3"
+      }
+    ]
+  },
+  {
+    "chordName": "major slash chords",
+    "chordList": [
+      {
+        "name": "C/E",
+        "symbol": "C/E",
+        "notes": ["C4", "E4", "G4"],
+        "bass": "E3"
+      },
+      {
+        "name": "C/G",
+        "symbol": "C/G",
+        "notes": ["C4", "E4", "G4"],
+        "bass": "G3"
+      },
+      {
+        "name": "D/F#",
+        "symbol": "D/F#",
+        "notes": ["D4", "F#4", "A4"],
+        "bass": "F#3"
+      },
+      {
+        "name": "D/A",
+        "symbol": "D/A",
+        "notes": ["D4", "F#4", "A4"],
+        "bass": "A3"
+      },
+      {
+        "name": "E/G#",
+        "symbol": "E/G#",
+        "notes": ["E4", "G#4", "B4"],
+        "bass": "G#3"
+      },
+      {
+        "name": "E/B",
+        "symbol": "E/B",
+        "notes": ["E4", "G#4", "B4"],
+        "bass": "B3"
+      },
+      {
+        "name": "F/A",
+        "symbol": "F/A",
+        "notes": ["F4", "A4", "C5"],
+        "bass": "A3"
+      },
+      {
+        "name": "G/B",
+        "symbol": "G/B",
+        "notes": ["G4", "B4", "D5"],
+        "bass": "B3"
+      },
+      {
+        "name": "G/D",
+        "symbol": "G/D",
+        "notes": ["G4", "B4", "D5"],
+        "bass": "D4"
+      },
+      {
+        "name": "A/C#",
+        "symbol": "A/C#",
+        "notes": ["A4", "C#5", "E5"],
+        "bass": "C#4"
+      },
+      {
+        "name": "A/E",
+        "symbol": "A/E",
+        "notes": ["A4", "C#5", "E5"],
+        "bass": "E4"
+      },
+      {
+        "name": "B/D#",
+        "symbol": "B/D#",
+        "notes": ["B4", "D#5", "F#5"],
+        "bass": "D#4"
+      },
+      {
+        "name": "B/F#",
+        "symbol": "B/F#",
+        "notes": ["B4", "D#5", "F#5"],
+        "bass": "F#3"
+      }
+    ]
+  },
+  {
+    "chordName": "add_chords",
+    "chordList": [
+      {
+        "name": "C add9",
+        "symbol": "Cadd9",
+        "notes": ["C4", "E4", "G4", "D5"],
+        "bass": "C3"
+      },
+      {
+        "name": "C add11",
+        "symbol": "Cadd11",
+        "notes": ["C4", "E4", "G4", "F5"],
+        "bass": "C3"
+      },
+      {
+        "name": "C add13",
+        "symbol": "Cadd13",
+        "notes": ["C4", "E4", "G4", "A5"],
+        "bass": "C3"
+      },
+      {
+        "name": "D add9",
+        "symbol": "Dadd9",
+        "notes": ["D4", "F#4", "A4", "E5"],
+        "bass": "D3"
+      },
+      {
+        "name": "D add11",
+        "symbol": "Dadd11",
+        "notes": ["D4", "F#4", "A4", "G5"],
+        "bass": "D3"
+      },
+      {
+        "name": "D add13",
+        "symbol": "Dadd13",
+        "notes": ["D4", "F#4", "A4", "B5"],
+        "bass": "D3"
+      },
+      {
+        "name": "E add9",
+        "symbol": "Eadd9",
+        "notes": ["E4", "G#4", "B4", "F#5"],
+        "bass": "E3"
+      },
+      {
+        "name": "E add11",
+        "symbol": "Eadd11",
+        "notes": ["E4", "G#4", "B4", "A5"],
+        "bass": "E3"
+      },
+      {
+        "name": "E add13",
+        "symbol": "Eadd13",
+        "notes": ["E4", "G#4", "B4", "C#6"],
+        "bass": "E3"
+      },
+      {
+        "name": "F add9",
+        "symbol": "Fadd9",
+        "notes": ["F4", "A4", "C5", "G5"],
+        "bass": "F3"
+      },
+      {
+        "name": "F add11",
+        "symbol": "Fadd11",
+        "notes": ["F4", "A4", "C5", "A#5"],
+        "bass": "F3"
+      },
+      {
+        "name": "F add13",
+        "symbol": "Fadd13",
+        "notes": ["F4", "A4", "C5", "D6"],
+        "bass": "F3"
+      },
+      {
+        "name": "G add9",
+        "symbol": "Gadd9",
+        "notes": ["G4", "B4", "D5", "A5"],
+        "bass": "G3"
+      },
+      {
+        "name": "G add11",
+        "symbol": "Gadd11",
+        "notes": ["G4", "B4", "D5", "C6"],
+        "bass": "G3"
+      },
+      {
+        "name": "G add13",
+        "symbol": "Gadd13",
+        "notes": ["G4", "B4", "D5", "E6"],
+        "bass": "G3"
+      },
+      {
+        "name": "A add9",
+        "symbol": "Aadd9",
+        "notes": ["A4", "C#5", "E5", "B5"],
+        "bass": "A3"
+      },
+      {
+        "name": "A add11",
+        "symbol": "Aadd11",
+        "notes": ["A4", "C#5", "E5", "D6"],
+        "bass": "A3"
+      },
+      {
+        "name": "A add13",
+        "symbol": "Aadd13",
+        "notes": ["A4", "C#5", "E5", "F#6"],
+        "bass": "A3"
+      },
+      {
+        "name": "B add9",
+        "symbol": "Badd9",
+        "notes": ["B4", "D#5", "F#5", "C#6"],
+        "bass": "B3"
+      },
+      {
+        "name": "B add11",
+        "symbol": "Badd11",
+        "notes": ["B4", "D#5", "F#5", "E6"],
+        "bass": "B3"
+      },
+      {
+        "name": "B add13",
+        "symbol": "Badd13",
+        "notes": ["B4", "D#5", "F#5", "G#6"],
+        "bass": "B3"
+      }
+    ]
+  }
+]
