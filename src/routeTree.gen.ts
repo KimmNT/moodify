@@ -12,10 +12,17 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TestIndexRouteImport } from './routes/test/index'
 import { Route as MoodIndexRouteImport } from './routes/mood/index'
+import { Route as LyricsIndexRouteImport } from './routes/lyrics/index'
+import { Route as JamjarIndexRouteImport } from './routes/jamjar/index'
 import { Route as FavoriteIndexRouteImport } from './routes/favorite/index'
 import { Route as ExploreIndexRouteImport } from './routes/explore/index'
 import { Route as ContributeIndexRouteImport } from './routes/contribute/index'
+import { Route as JamjarNotesIndexRouteImport } from './routes/jamjar/notes/index'
+import { Route as JamjarJamspaceIndexRouteImport } from './routes/jamjar/jamspace/index'
+import { Route as JamjarChordsIndexRouteImport } from './routes/jamjar/chords/index'
 import { Route as ContributeVideoIdIndexRouteImport } from './routes/contribute/$videoId/index'
+import { Route as JamjarJamspaceJamspaceIndexRouteImport } from './routes/jamjar/jamspace/$jamspace/index'
+import { Route as JamjarJamspaceJamspaceSectionSectionIndexRouteImport } from './routes/jamjar/jamspace/$jamspace/section/$section/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -32,6 +39,16 @@ const MoodIndexRoute = MoodIndexRouteImport.update({
   path: '/mood/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/mood/index.lazy').then((d) => d.Route))
+const LyricsIndexRoute = LyricsIndexRouteImport.update({
+  id: '/lyrics/',
+  path: '/lyrics/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/lyrics/index.lazy').then((d) => d.Route))
+const JamjarIndexRoute = JamjarIndexRouteImport.update({
+  id: '/jamjar/',
+  path: '/jamjar/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/jamjar/index.lazy').then((d) => d.Route))
 const FavoriteIndexRoute = FavoriteIndexRouteImport.update({
   id: '/favorite/',
   path: '/favorite/',
@@ -51,6 +68,27 @@ const ContributeIndexRoute = ContributeIndexRouteImport.update({
 } as any).lazy(() =>
   import('./routes/contribute/index.lazy').then((d) => d.Route),
 )
+const JamjarNotesIndexRoute = JamjarNotesIndexRouteImport.update({
+  id: '/jamjar/notes/',
+  path: '/jamjar/notes/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/jamjar/notes/index.lazy').then((d) => d.Route),
+)
+const JamjarJamspaceIndexRoute = JamjarJamspaceIndexRouteImport.update({
+  id: '/jamjar/jamspace/',
+  path: '/jamjar/jamspace/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/jamjar/jamspace/index.lazy').then((d) => d.Route),
+)
+const JamjarChordsIndexRoute = JamjarChordsIndexRouteImport.update({
+  id: '/jamjar/chords/',
+  path: '/jamjar/chords/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/jamjar/chords/index.lazy').then((d) => d.Route),
+)
 const ContributeVideoIdIndexRoute = ContributeVideoIdIndexRouteImport.update({
   id: '/contribute/$videoId/',
   path: '/contribute/$videoId/',
@@ -58,24 +96,58 @@ const ContributeVideoIdIndexRoute = ContributeVideoIdIndexRouteImport.update({
 } as any).lazy(() =>
   import('./routes/contribute/$videoId/index.lazy').then((d) => d.Route),
 )
+const JamjarJamspaceJamspaceIndexRoute =
+  JamjarJamspaceJamspaceIndexRouteImport.update({
+    id: '/jamjar/jamspace/$jamspace/',
+    path: '/jamjar/jamspace/$jamspace/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/jamjar/jamspace/$jamspace/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const JamjarJamspaceJamspaceSectionSectionIndexRoute =
+  JamjarJamspaceJamspaceSectionSectionIndexRouteImport.update({
+    id: '/jamjar/jamspace/$jamspace/section/$section/',
+    path: '/jamjar/jamspace/$jamspace/section/$section/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import(
+      './routes/jamjar/jamspace/$jamspace/section/$section/index.lazy'
+    ).then((d) => d.Route),
+  )
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contribute': typeof ContributeIndexRoute
   '/explore': typeof ExploreIndexRoute
   '/favorite': typeof FavoriteIndexRoute
+  '/jamjar': typeof JamjarIndexRoute
+  '/lyrics': typeof LyricsIndexRoute
   '/mood': typeof MoodIndexRoute
   '/test': typeof TestIndexRoute
   '/contribute/$videoId': typeof ContributeVideoIdIndexRoute
+  '/jamjar/chords': typeof JamjarChordsIndexRoute
+  '/jamjar/jamspace': typeof JamjarJamspaceIndexRoute
+  '/jamjar/notes': typeof JamjarNotesIndexRoute
+  '/jamjar/jamspace/$jamspace': typeof JamjarJamspaceJamspaceIndexRoute
+  '/jamjar/jamspace/$jamspace/section/$section': typeof JamjarJamspaceJamspaceSectionSectionIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contribute': typeof ContributeIndexRoute
   '/explore': typeof ExploreIndexRoute
   '/favorite': typeof FavoriteIndexRoute
+  '/jamjar': typeof JamjarIndexRoute
+  '/lyrics': typeof LyricsIndexRoute
   '/mood': typeof MoodIndexRoute
   '/test': typeof TestIndexRoute
   '/contribute/$videoId': typeof ContributeVideoIdIndexRoute
+  '/jamjar/chords': typeof JamjarChordsIndexRoute
+  '/jamjar/jamspace': typeof JamjarJamspaceIndexRoute
+  '/jamjar/notes': typeof JamjarNotesIndexRoute
+  '/jamjar/jamspace/$jamspace': typeof JamjarJamspaceJamspaceIndexRoute
+  '/jamjar/jamspace/$jamspace/section/$section': typeof JamjarJamspaceJamspaceSectionSectionIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -83,9 +155,16 @@ export interface FileRoutesById {
   '/contribute/': typeof ContributeIndexRoute
   '/explore/': typeof ExploreIndexRoute
   '/favorite/': typeof FavoriteIndexRoute
+  '/jamjar/': typeof JamjarIndexRoute
+  '/lyrics/': typeof LyricsIndexRoute
   '/mood/': typeof MoodIndexRoute
   '/test/': typeof TestIndexRoute
   '/contribute/$videoId/': typeof ContributeVideoIdIndexRoute
+  '/jamjar/chords/': typeof JamjarChordsIndexRoute
+  '/jamjar/jamspace/': typeof JamjarJamspaceIndexRoute
+  '/jamjar/notes/': typeof JamjarNotesIndexRoute
+  '/jamjar/jamspace/$jamspace/': typeof JamjarJamspaceJamspaceIndexRoute
+  '/jamjar/jamspace/$jamspace/section/$section/': typeof JamjarJamspaceJamspaceSectionSectionIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -94,27 +173,48 @@ export interface FileRouteTypes {
     | '/contribute'
     | '/explore'
     | '/favorite'
+    | '/jamjar'
+    | '/lyrics'
     | '/mood'
     | '/test'
     | '/contribute/$videoId'
+    | '/jamjar/chords'
+    | '/jamjar/jamspace'
+    | '/jamjar/notes'
+    | '/jamjar/jamspace/$jamspace'
+    | '/jamjar/jamspace/$jamspace/section/$section'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contribute'
     | '/explore'
     | '/favorite'
+    | '/jamjar'
+    | '/lyrics'
     | '/mood'
     | '/test'
     | '/contribute/$videoId'
+    | '/jamjar/chords'
+    | '/jamjar/jamspace'
+    | '/jamjar/notes'
+    | '/jamjar/jamspace/$jamspace'
+    | '/jamjar/jamspace/$jamspace/section/$section'
   id:
     | '__root__'
     | '/'
     | '/contribute/'
     | '/explore/'
     | '/favorite/'
+    | '/jamjar/'
+    | '/lyrics/'
     | '/mood/'
     | '/test/'
     | '/contribute/$videoId/'
+    | '/jamjar/chords/'
+    | '/jamjar/jamspace/'
+    | '/jamjar/notes/'
+    | '/jamjar/jamspace/$jamspace/'
+    | '/jamjar/jamspace/$jamspace/section/$section/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -122,9 +222,16 @@ export interface RootRouteChildren {
   ContributeIndexRoute: typeof ContributeIndexRoute
   ExploreIndexRoute: typeof ExploreIndexRoute
   FavoriteIndexRoute: typeof FavoriteIndexRoute
+  JamjarIndexRoute: typeof JamjarIndexRoute
+  LyricsIndexRoute: typeof LyricsIndexRoute
   MoodIndexRoute: typeof MoodIndexRoute
   TestIndexRoute: typeof TestIndexRoute
   ContributeVideoIdIndexRoute: typeof ContributeVideoIdIndexRoute
+  JamjarChordsIndexRoute: typeof JamjarChordsIndexRoute
+  JamjarJamspaceIndexRoute: typeof JamjarJamspaceIndexRoute
+  JamjarNotesIndexRoute: typeof JamjarNotesIndexRoute
+  JamjarJamspaceJamspaceIndexRoute: typeof JamjarJamspaceJamspaceIndexRoute
+  JamjarJamspaceJamspaceSectionSectionIndexRoute: typeof JamjarJamspaceJamspaceSectionSectionIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -150,6 +257,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MoodIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lyrics/': {
+      id: '/lyrics/'
+      path: '/lyrics'
+      fullPath: '/lyrics'
+      preLoaderRoute: typeof LyricsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jamjar/': {
+      id: '/jamjar/'
+      path: '/jamjar'
+      fullPath: '/jamjar'
+      preLoaderRoute: typeof JamjarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/favorite/': {
       id: '/favorite/'
       path: '/favorite'
@@ -171,11 +292,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContributeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jamjar/notes/': {
+      id: '/jamjar/notes/'
+      path: '/jamjar/notes'
+      fullPath: '/jamjar/notes'
+      preLoaderRoute: typeof JamjarNotesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jamjar/jamspace/': {
+      id: '/jamjar/jamspace/'
+      path: '/jamjar/jamspace'
+      fullPath: '/jamjar/jamspace'
+      preLoaderRoute: typeof JamjarJamspaceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jamjar/chords/': {
+      id: '/jamjar/chords/'
+      path: '/jamjar/chords'
+      fullPath: '/jamjar/chords'
+      preLoaderRoute: typeof JamjarChordsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contribute/$videoId/': {
       id: '/contribute/$videoId/'
       path: '/contribute/$videoId'
       fullPath: '/contribute/$videoId'
       preLoaderRoute: typeof ContributeVideoIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jamjar/jamspace/$jamspace/': {
+      id: '/jamjar/jamspace/$jamspace/'
+      path: '/jamjar/jamspace/$jamspace'
+      fullPath: '/jamjar/jamspace/$jamspace'
+      preLoaderRoute: typeof JamjarJamspaceJamspaceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jamjar/jamspace/$jamspace/section/$section/': {
+      id: '/jamjar/jamspace/$jamspace/section/$section/'
+      path: '/jamjar/jamspace/$jamspace/section/$section'
+      fullPath: '/jamjar/jamspace/$jamspace/section/$section'
+      preLoaderRoute: typeof JamjarJamspaceJamspaceSectionSectionIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -186,9 +342,17 @@ const rootRouteChildren: RootRouteChildren = {
   ContributeIndexRoute: ContributeIndexRoute,
   ExploreIndexRoute: ExploreIndexRoute,
   FavoriteIndexRoute: FavoriteIndexRoute,
+  JamjarIndexRoute: JamjarIndexRoute,
+  LyricsIndexRoute: LyricsIndexRoute,
   MoodIndexRoute: MoodIndexRoute,
   TestIndexRoute: TestIndexRoute,
   ContributeVideoIdIndexRoute: ContributeVideoIdIndexRoute,
+  JamjarChordsIndexRoute: JamjarChordsIndexRoute,
+  JamjarJamspaceIndexRoute: JamjarJamspaceIndexRoute,
+  JamjarNotesIndexRoute: JamjarNotesIndexRoute,
+  JamjarJamspaceJamspaceIndexRoute: JamjarJamspaceJamspaceIndexRoute,
+  JamjarJamspaceJamspaceSectionSectionIndexRoute:
+    JamjarJamspaceJamspaceSectionSectionIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

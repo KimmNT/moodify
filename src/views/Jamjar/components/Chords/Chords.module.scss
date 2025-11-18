@@ -1,0 +1,117 @@
+@use "@/style/utils.scss";
+
+.PageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: var(--navbar-height);
+  position: relative;
+  height: 95dvh;
+
+  .HeaderContainer {
+    text-align: center;
+    margin: 2rem 0;
+
+    .Header {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+
+      @include utils.viewport(3) {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .ChordsContainer {
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+
+    .ChordSidebar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      width: 100%;
+
+      &.Hidden {
+        position: unset;
+      }
+
+      .ChordListPreview {
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+        width: 80%;
+        padding: 0.25rem;
+
+        .ChordPreviewItem {
+          background-color: var(--secondary-bg);
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          box-shadow: var(--box-shadow);
+          border: 0.125rem solid #000;
+          cursor: pointer;
+          text-align: center;
+          white-space: nowrap;
+          margin-right: 0.5rem;
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .ChordGroups {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      .ChordGroupItem {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .ChordName {
+          font-size: 1.5rem;
+          width: 100%;
+        }
+
+        .ChordList {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          width: 100%;
+
+          .ChordItem {
+            background-color: var(--secondary-bg);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            box-shadow: var(--box-shadow);
+            border: 0.125rem solid #000;
+            cursor: pointer;
+            text-align: center;
+            width: fit-content;
+
+            .Name {
+              display: block;
+              margin-bottom: 0.5rem;
+              font-size: 1.5rem;
+            }
+
+            .Set {
+              font-size: 0.9rem;
+              color: var(--text-secondary);
+
+              .BassNote {
+                font-weight: bold;
+                margin-right: 0.5rem;
+                background-color: rgba($color: #000000, $alpha: 0.6);
+                color: #fff;
+                padding: 0.25rem;
+                border-radius: 0.25rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

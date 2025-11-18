@@ -1,0 +1,153 @@
+@use "@/style/utils.scss";
+
+.PageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: var(--navbar-height);
+  position: relative;
+  height: 95dvh;
+
+  .Content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+
+    .Header {
+      display: flex;
+      justify-content: space-between;
+
+      .BackButton {
+        width: 5rem;
+        height: 2.5rem;
+        border-radius: 0.25rem;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        .Icon {
+          color: #fff;
+        }
+      }
+
+      .Info {
+        border: 0.125rem solid #000;
+        border-radius: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        display: flex;
+        align-items: center;
+
+        .Item {
+          display: flex;
+          align-items: center;
+          font-size: 1rem;
+
+          .Heading {
+            font-weight: 600;
+          }
+
+          input {
+            font-size: 1rem;
+            border: none;
+            border-bottom: 0.125rem solid #ccc;
+            padding: 0.25rem;
+            outline: none;
+          }
+        }
+
+        .Breaker {
+          height: 100%;
+          width: 0.125rem;
+          background-color: rgba($color: #000000, $alpha: 0.2);
+          margin: 0 1rem;
+        }
+
+        .EditButton {
+          cursor: pointer;
+          width: 3rem;
+          height: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #000;
+          border: none;
+          outline: none;
+          border-radius: 0.25rem;
+
+          .EditIcon {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .Sections {
+      margin-top: 4rem;
+
+      .SectionsHeader {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .SectionList {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .SectionItem {
+          padding: 0.5rem;
+          border: 0.125rem solid #000;
+          border-radius: 0.25rem;
+          display: flex;
+          flex-direction: column;
+          background-color: transparent;
+          color: #000;
+          gap: 0.5rem;
+
+          .Item {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .ItemTitle {
+              font-size: 1.2rem;
+            }
+            .ItemValue {
+              font-size: 1.2rem;
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              gap: 0.25rem;
+            }
+          }
+
+          .Controllers {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+          }
+        }
+
+        .AddSectionButton {
+          width: 10rem;
+          height: 2rem;
+          border-radius: 0.25rem;
+          background-color: transparent;
+          color: #000;
+          border: 0.125rem solid #000;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+}

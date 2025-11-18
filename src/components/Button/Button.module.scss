@@ -1,0 +1,38 @@
+@use "@/style/utils.scss";
+
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid #000;
+
+  &.Primary {
+    background: #000;
+    color: white;
+  }
+
+  &.Secondary {
+    background: transparent;
+    color: #000;
+  }
+
+  &.Delete {
+    background: #f44336;
+    color: white;
+    border-color: #f44336;
+  }
+}
+
+.Text {
+  font-size: 0.75rem;
+}
+
+.Icon {
+  color: var(--color-text);
+}

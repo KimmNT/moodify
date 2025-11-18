@@ -38,7 +38,7 @@ export default function Contribute() {
   return (
     <>
       <TabTitle title="Contribute" />
-      <Navbar />
+      <Navbar currentPath="Contribute" />
       <main className={style.PageContainer}>
         <div className={style.HeaderContainer}>
           <h1 className={style.Header}>Contribute and Grow the Collection</h1>

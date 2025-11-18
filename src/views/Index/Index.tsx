@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <>
       <TabTitle title="Home" />
-      <Navbar />
+      <Navbar currentPath="Home" />
       <main>
         <h1>Welcome to Moodify!</h1>
       </main>

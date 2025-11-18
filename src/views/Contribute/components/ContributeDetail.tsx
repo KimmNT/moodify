@@ -106,7 +106,7 @@ export default function ContributeDetail() {
   return (
     <>
       <TabTitle title="Contribute Detail" />
-      <Navbar />
+      <Navbar currentPath="Contribute" />
       <main>
         <div className={style.PageContainer}>
           <div className={style.DetailContainer}>

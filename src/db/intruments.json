@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Piano",
+    "folder": "piano",
+    "ext": "wav"
+  },
+  {
+    "name": "Guitar Electric",
+    "folder": "guitar-electric",
+    "ext": "wav"
+  },
+  {
+    "name": "Guitar Acoustic",
+    "folder": "guitar-acoustic",
+    "ext": "wav"
+  },
+  {
+    "name": "Saxophone",
+    "folder": "saxophone",
+    "ext": "wav"
+  },
+  {
+    "name": "Violin",
+    "folder": "violin",
+    "ext": "wav"
+  }
+]

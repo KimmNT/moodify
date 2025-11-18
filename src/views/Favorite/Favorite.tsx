@@ -48,7 +48,7 @@ export default function Favorite() {
 
   useEffect(() => {
     setQueue(favorites);
-  }, [favorites]);
+  }, [favorites, setQueue]);
 
   useEffect(() => {
     if (playingId !== null) {
@@ -89,7 +89,7 @@ export default function Favorite() {
   return (
     <>
       <TabTitle title="Favorite" />
-      <Navbar />
+      <Navbar currentPath="Favorites" />
       <main className={style.PageContainer}>
         <div className={style.HeaderContainer}>
           <h1 className={style.Header}>All Your Favorites, All in One Place</h1>

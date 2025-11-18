@@ -5,8 +5,12 @@ import Logo from "../Logo/Logo";
 import { LucideCircleArrowUp, MenuIcon } from "lucide-react";
 import { useState } from "react";
 
-export default function Navbar() {
-  const currentPath = window.location.pathname;
+interface CurrentPathProps {
+  currentPath: string;
+}
+
+export default function Navbar({ currentPath }: CurrentPathProps) {
+  // const currentPath = window.location.pathname;
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
@@ -19,7 +23,7 @@ export default function Navbar() {
               key={item.path}
               to={item.path}
               className={
-                currentPath === item.path ? style.ActiveLink : style.NavLink
+                currentPath === item.name ? style.ActiveLink : style.NavLink
               }
             >
               {item.name}

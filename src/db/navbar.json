@@ -19,6 +19,11 @@
       "name": "Favorites",
       "path": "/favorite",
       "icon": "favorite"
+    },
+    {
+      "name": "JamJar",
+      "path": "/jamjar",
+      "icon": "jamjar"
     }
   ]
 }

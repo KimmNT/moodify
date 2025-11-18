@@ -1,49 +1,54 @@
-import pako from "pako";
 import { useState } from "react";
-import type { Favorite } from "../libs/Videos/VideoModel";
 
-export default function Test() {
-  const [compressed, setCompressed] = useState("");
-  const [decompressed, setDecompressed] = useState<Favorite[] | null>(null);
-  const [input, setInput] = useState("");
-  const stored = localStorage.getItem("favorites") ?? "";
+export default function LyricsFetcher() {
+  const [artist, setArtist] = useState("You Belong With Me");
+  const [song, setSong] = useState("Taylor Swift");
+  const [lyrics, setLyrics] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const compress = (str: string) => {
-    const binary = pako.gzip(str);
-    setCompressed(btoa(String.fromCharCode(...binary)));
-  };
+  const fetchLyrics = async () => {
+    setLoading(true);
+    setLyrics("");
 
-  const decompress = (base64: string) => {
-    const binary = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
-    const decompressResult = pako.ungzip(binary, { to: "string" });
-    setDecompressed(JSON.parse(decompressResult));
+    try {
+      const res = await fetch(
+        `http://localhost:3001/lyrics?artist=${artist}&song=${song}`
+      );
+      const data = await res.json();
+      setLyrics(data.lyrics || "❌ Lyrics not found");
+    } catch (err) {
+      console.error(err);
+      setLyrics("⚠️ Error fetching lyrics");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div>
-      <div>
-        <button onClick={() => compress(stored)}>export your list</button>
-        <p style={{ wordWrap: "break-word" }}>{compressed}</p>
-      </div>
-      <div>
-        <p>Decompress</p>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button onClick={() => decompress(input)}>Decompress now!</button>
+    <div style={{ padding: "2rem" }}>
+      <h1>🎤 Moodify Karaoke</h1>
 
-        {decompressed && (
-          <div>
-            {decompressed.map((item) => (
-              <div key={item.id}>
-                <div>{item.title}</div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      <input
+        value={artist}
+        onChange={(e) => setArtist(e.target.value)}
+        placeholder="Artist"
+        style={{ marginRight: "1rem" }}
+      />
+      <input
+        value={song}
+        onChange={(e) => setSong(e.target.value)}
+        placeholder="Song"
+        style={{ marginRight: "1rem" }}
+      />
+      <button onClick={fetchLyrics}>Get Lyrics</button>
+
+      {loading && <p>Loading...</p>}
+
+      {lyrics && (
+        <pre style={{ whiteSpace: "pre-wrap", marginTop: "2rem" }}>
+          {lyrics}
+        </pre>
+      )}
     </div>
   );
 }

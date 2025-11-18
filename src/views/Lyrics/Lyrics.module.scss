@@ -1,0 +1,19 @@
+@use "../../style/utils.scss";
+
+.PageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: var(--navbar-height);
+
+  .Content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    .Brick {
+      width: 40%;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@use "@/style/utils.scss";
+
+$piano-width: 90vw;
+$key-white-width: 3.2vw;
+$key-black-width: 2vw;
+$key-height: 25vh;
+
+.PageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: var(--navbar-height);
+  position: relative;
+  height: 95dvh;
+
+  .HeaderContainer {
+    text-align: center;
+    margin: 2rem 0;
+    .Header {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      @include utils.viewport(3) {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .PianoContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: $piano-width;
+    gap: 0.25rem;
+
+    .KeyList {
+      display: flex;
+      gap: 0.25rem;
+
+      .Key {
+        width: $key-white-width;
+        height: $key-height;
+        border: 0.125rem solid black;
+        box-sizing: border-box;
+        background-color: white;
+        margin: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        &.Black {
+          background-color: black;
+
+          .Label {
+            color: white;
+          }
+        }
+
+        &.Active {
+          background-color: rgba($color: #000000, $alpha: 0.6);
+        }
+      }
+    }
+  }
+}
