@@ -6,12 +6,12 @@ import style from "./Lyrics.module.scss";
 export default function Lyrics() {
   return (
     <>
-      <Navbar />
+      <Navbar currentPath="yeah" />
       <main className={style.PageContainer}>
         <div className={style.Content}>
           <SongQuery />
           <div className={style.Brick}></div>
-          <LyricGenerating />
+          <LyricGenerating song="" />
         </div>
       </main>
     </>
